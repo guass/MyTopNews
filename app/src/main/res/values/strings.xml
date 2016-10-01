@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyTopNews</string>
+    <string name="action_settings">Settings</string>
+    <string name="article">文章</string>
+    <string name="channel">频道</string>
+    <string name="top_num">头条号</string>
+    <string name="video">视频</string>
+    <string name="talk">话题</string>
+</resources>
