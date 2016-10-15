@@ -27,7 +27,6 @@
             android:paddingLeft="3dp"
             android:textSize="13sp"
             android:textColor="#999999"
-
             android:hint="输入关键字"/>
 
         <TextView

@@ -1,5 +1,6 @@
 package com.guass.mytopnews.activity;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -8,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.guass.mytopnews.R;
@@ -21,6 +24,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private SystemBarTintManager tintManager;
     private TextView tv_cancel;
+    private EditText et_searchview_2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,5 +51,11 @@ public class SearchActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        et_searchview_2 = (EditText) findViewById(R.id.et_searchview_2);
+        et_searchview_2.setFocusable(true);
+//        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//        imm.showSoftInput(et_searchview_2, InputMethodManager.SHOW_FORCED);
+
     }
 }
