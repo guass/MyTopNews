@@ -33,7 +33,7 @@ public class SearchActivity extends AppCompatActivity {
 //            Window win = getWindow();
 //            WindowManager.LayoutParams winParams = win.getAttributes();
 //            final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-//            winParams.flags |= bits;
+//            winParams.flags |= bits
 //            win.setAttributes(winParams);
 //            tintManager = new SystemBarTintManager(this);
 //            tintManager.setStatusBarTintEnabled(true);
