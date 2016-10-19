@@ -18,6 +18,9 @@ public class OtherGridView  extends GridView{
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
     {
+        /**
+         * 解决scrollview 嵌套gridView 显示不全的问题
+         */
         int expandSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2,
                 MeasureSpec.AT_MOST);
         super.onMeasure(widthMeasureSpec, expandSpec);
