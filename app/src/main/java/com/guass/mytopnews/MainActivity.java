@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         mScreenWidth = BaseTools.getWindowsWidth(this);
         mItemWidth = mScreenWidth / 7; // 一个Item宽度为屏幕的1/7
         
-        initView();
+       // initView();
         initSlidingMenu();
     }
 
