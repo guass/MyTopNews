@@ -63,7 +63,7 @@ public class OtherAdapter extends BaseAdapter {
         item_text.setText(channel.getName());
         if (!isVisible && (position == -1 + channelList.size()))
         {
-            Log.i("guass", "getView0: ");
+
             item_text.setText("");
         }
         if(remove_position == position)
@@ -71,7 +71,7 @@ public class OtherAdapter extends BaseAdapter {
             Log.i("guass", "getView1: ");
             item_text.setText("");
         }
-        Log.i("guass", "getView: " + position);
+
         return view;
     }
 

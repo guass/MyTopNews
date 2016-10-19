@@ -25,6 +25,8 @@ import android.widget.TextView;
 
 import com.guass.mytopnews.activity.ChannelActivity;
 import com.guass.mytopnews.activity.SearchActivity;
+import com.guass.mytopnews.bean.ChannelItem;
+import com.guass.mytopnews.bean.ChannelManage;
 import com.guass.mytopnews.bean.NewsClassify;
 import com.guass.mytopnews.tools.Constants;
 import com.guass.mytopnews.utils.BaseTools;
@@ -62,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<NewsClassify> newsClassify=new ArrayList<NewsClassify>();
     /**当前选择的栏目*/
    int  columnSelectIndex = 0;
+    /** 用户栏目列表 */
+    ArrayList<ChannelItem> userChannelList = new ArrayList<ChannelItem>();
 
 
     @Override
@@ -149,15 +153,24 @@ public class MainActivity extends AppCompatActivity {
     {
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        Log.i(TAG, "onResume: ");
+        initView();
+    }
+
     /** 获取Column栏目 数据*/
     private void initColumnData() {
-        newsClassify = Constants.getData();
+ //       newsClassify = Constants.getData();
+        userChannelList = ((ArrayList<ChannelItem>) ChannelManage.getManage(MyApp.getApp().getSQLHelper()).getUserChannel());
     }
 
     private void initTabColumn()
     {
         mRadioGroup_content.removeAllViews();
-        int count = newsClassify.size();
+        int count = userChannelList.size();
 
         mColumnHorizontalScrollView.setParam(this, mScreenWidth, mRadioGroup_content, shade_left, shade_right, ll_more_columns, rl_column);
         for(int i = 0; i < count; i++)
@@ -173,7 +186,8 @@ public class MainActivity extends AppCompatActivity {
             columnTextView.setGravity(Gravity.CENTER);
             columnTextView.setPadding(5, 5, 5, 5);
             columnTextView.setId(i);
-            columnTextView.setText(newsClassify.get(i).getTitle());
+//            columnTextView.setText(newsClassify.get(i).getTitle());
+            columnTextView.setText(userChannelList.get(i).getName());
             columnTextView.setTextColor(getResources().getColorStateList(R.color.top_category_scroll_text_color_day));
             if(columnSelectIndex == i)
             {
