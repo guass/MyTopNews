@@ -23,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.guass.mytopnews.activity.ChannelActivity;
 import com.guass.mytopnews.activity.SearchActivity;
 import com.guass.mytopnews.bean.NewsClassify;
 import com.guass.mytopnews.tools.Constants;
@@ -121,6 +122,14 @@ public class MainActivity extends AppCompatActivity {
             {
                 Log.i(TAG, "onClick: ");
                 startActivity(new Intent(MainActivity.this,SearchActivity.class));
+            }
+        });
+
+        button_more_columns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(MainActivity.this, ChannelActivity.class));
             }
         });
 
