@@ -25,12 +25,14 @@ import android.widget.TextView;
 
 import com.guass.mytopnews.activity.ChannelActivity;
 import com.guass.mytopnews.activity.SearchActivity;
+import com.guass.mytopnews.adapter.SelectAdapter;
 import com.guass.mytopnews.bean.ChannelItem;
 import com.guass.mytopnews.bean.ChannelManage;
 import com.guass.mytopnews.bean.NewsClassify;
 import com.guass.mytopnews.tools.Constants;
 import com.guass.mytopnews.utils.BaseTools;
 import com.guass.mytopnews.view.ColumnHorizontalScrollView;
+import com.guass.mytopnews.view.SectorLayout;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
@@ -67,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
     /** 用户栏目列表 */
     ArrayList<ChannelItem> userChannelList = new ArrayList<ChannelItem>();
 
+    private SectorLayout mSectorLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,14 +79,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-            }
-        });
 
         mScreenWidth = BaseTools.getWindowsWidth(this);
         mItemWidth = mScreenWidth / 7; // 一个Item宽度为屏幕的1/7
@@ -136,6 +132,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ChannelActivity.class));
             }
         });
+
+        mSectorLayout = (SectorLayout) findViewById(R.id.sector);
+        mSectorLayout.setAdapter(new SelectAdapter(this));
 
         setChangelView();
     }
